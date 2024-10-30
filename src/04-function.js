@@ -9,7 +9,7 @@
  * const message = generateMessage("Jack", 25); // "Hey Jack, happy 25 birthday!"
  */
 function generateMessage(name, age) {
-
+return `Hey ${name}, happy ${age} birthday!`
 }
 
 /**
@@ -21,8 +21,16 @@ function generateMessage(name, age) {
  * Usage:
  * const title = titleCase("hello world"); // title will be "Hello World"
  */
+// From https://stackoverflow.com/questions/32589197/how-can-i-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript
 function titleCase(sentence) {
-
+    let splitStr = sentence.toLowerCase().split(' ');
+    for (let i = 0; i < splitStr.length; i++) {
+        // You do not need to check if i is larger than splitStr length, as your for does that for you
+        // Assign it back to the array
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+    }
+    // Directly return the joined string
+    return splitStr.join(' ');
 }
 
 /**
@@ -50,8 +58,11 @@ function sumOfRange(start, end) {
  * const acronym = generateAcronym("Open 24 Hours a Day"); // acronym will be "OHAD"
  * const anotherAcronym = generateAcronym("Federal Bureau Investigation"); // anotherAcronym will be "FBI"
  */
+// From https://stackoverflow.com/questions/8279859/get-first-letter-of-each-word-in-a-string-in-javascript
 function generateAcronym(sentence) {
-
+    let matches = sentence.match(/\b(\w)/g); // ['J','S','O','N']
+    let acronym = matches.join(''); // JSON
+    return acronym;
 }
 
 
@@ -65,6 +76,20 @@ function generateAcronym(sentence) {
  * const consonantCount = countConsonantsWeighted("Hello World!"); // consonantCount will be 9
  * const anotherCount = countConsonantsWeighted("JavaScript"); // anotherCount will be 9
  */
+// From https://stackoverflow.com/questions/46908449/how-to-count-how-many-consonants-are-in-a-string
 function countConsonantsWeighted(str) {
+    let countConsonants = 0;
 
-}
+    for (let i = 0; i < str.length; i++) {
+
+        if (str[i] !== "a" || str[i] !== "e" || str[i] !== "i" ||
+            str[i] !== "o" || str[i] !== "u" || str[i] !== " ") {
+            countConsonants++;
+
+        }
+        if (str[i] !== "A" || str[i] !== "E" || str[i] !== "I" ||
+            str[i] !== "O" || str[i] !== "U" || str[i] !== " ") {
+            countConsonants += 2;
+        }
+        return (countConsonants);
+    }}

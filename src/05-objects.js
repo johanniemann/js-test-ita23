@@ -8,7 +8,11 @@
  * // person might be { name: 'John Doe', age: 30, city: 'New York' }
  */
 function createPersonObject() {
-
+    return {
+        name: "John Doe",
+        age: 30,
+        city: "New York"
+    };
 }
 
 
@@ -23,7 +27,9 @@ function createPersonObject() {
  * // personName will be 'John Doe'
  */
 function getPersonName(person) {
+    return {
 
+    };
 }
 
 
@@ -40,10 +46,11 @@ function getPersonName(person) {
  *
  */
 function findPersonByName(persons, name) {
-
-}
-
-
+    for (let person of persons) {
+        if (person.name === name) {
+            return person;
+        }
+    }}
 /**
  * This function calculates the total age of all persons in an array.
  *
@@ -54,9 +61,13 @@ function findPersonByName(persons, name) {
  * const totalAge = getTotalAge([{ name: 'John Doe', age: 30 }, { name: 'Jane Doe', age: 25 }]);
  * // totalAge will be 55
  */
+// From https://stackoverflow.com/questions/36736888/find-the-sum-of-ages-in-json-array
 function getTotalAge(persons) {
-
-}
+    var sum=0;
+    for(var i=0;i<persons.length; i++) {
+        sum+= persons[i].age;
+return sum
+}}
 
 
 /**
@@ -73,6 +84,7 @@ function getTotalAge(persons) {
  * ];
  * const hasDuplicates = checkForDuplicateEmails(users); // true
  */
+// From https://stackoverflow.com/questions/49215358/checking-for-duplicate-strings-in-javascript-array
 function checkForDuplicateEmails(users) {
-
+    return new Set(users).size !== users.length
 }
